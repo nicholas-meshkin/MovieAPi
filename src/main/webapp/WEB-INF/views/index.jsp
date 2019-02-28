@@ -63,7 +63,15 @@
 							<input name="id" type="hidden" value="${ movie.id }">
 							<button>Details</button>
 					</form>
-					< a href="/?id=${movie.id }&releaseYear=${param.releaseYear }"
+					
+					</td>
+					
+					<td>
+					<form method= "post">
+							<input name="movieId" type="hidden" value="${ movie.id }">
+							<button>Add Favorite</button>
+					</form>
+					<!--  < a href="/?id=${movie.id }&releaseYear=${param.releaseYear }" -->
 					</td>
 				</tr>
 
