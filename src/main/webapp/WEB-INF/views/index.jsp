@@ -63,6 +63,7 @@
 							<input name="id" type="hidden" value="${ movie.id }">
 							<button>Details</button>
 					</form>
+					< a href="/?id=${movie.id }&releaseYear=${param.releaseYear }"
 					</td>
 				</tr>
 
