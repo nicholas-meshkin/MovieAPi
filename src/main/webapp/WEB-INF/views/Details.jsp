@@ -25,9 +25,10 @@
 
 	<p>release date: ${ details.releaseDate }</p>
 
-	<p>revenue: ${ details.revenue }</p>
+	<p>budget:$ ${ details.budget }</p>
+	<p>revenue:$ ${ details.revenue }</p>
 
-	<p>runtime: ${ details.runtime }</p>
+	<p>runtime: ${ details.runtime } minutes</p>
 
 	<p>spoken languages:<br>
 	<c:forEach var="sLanguages" items="${ details.sLanguages }">
@@ -37,7 +38,7 @@
 
 	<p>status: ${ details.status }</p>
 
-	<p>tagline: ${ details.tagline }</p>
+	<p>tagline:"${ details.tagline }"</p>
 
 	<p>vote average: ${ details.voteAverage }</p>
 

@@ -19,7 +19,7 @@ public class MovieDetail {
 	private Double popularity;
 	@JsonProperty("release_date")
 	private String releaseDate;
-	private Long revenue;
+	private Integer revenue;
 	private Integer runtime;
 	private String status;
 	private String tagline;
@@ -90,10 +90,10 @@ public class MovieDetail {
 	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-	public Long getRevenue() {
+	public Integer getRevenue() {
 		return revenue;
 	}
-	public void setRevenue(Long revenue) {
+	public void setRevenue(Integer revenue) {
 		this.revenue = revenue;
 	}
 	public Integer getRuntime() {
