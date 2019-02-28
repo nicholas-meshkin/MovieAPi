@@ -10,5 +10,28 @@
 </head>
 <body>
 
+<div class="container">
+
+<table>
+
+<tr>
+<th>Title</th><th>Release Date</th><th>Popularity</th>
+</tr>
+
+<c:forEach var="movie" items="${ movies }">
+
+<tr>
+<td>${ movie.title }</td>
+<td>${ movie.releaseDate }</td>
+<td>${ movie.popularity }</td>
+</tr>
+
+</c:forEach>
+</table>
+
+</div>
+
+
+"This product uses the TMDb API but is not endorsed or certified by TMDb."
 </body>
 </html>
