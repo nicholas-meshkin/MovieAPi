@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import co.grandcircus.MovieAPi.Model.Movie;
+import co.grandcircus.MovieAPi.Model.MovieDetail;
 import co.grandcircus.MovieAPi.Model.MovieResponse;
 
 @Component
@@ -21,4 +22,12 @@ public class ApiService {
 		MovieResponse response = restTemplate.getForObject(url, MovieResponse.class);
 		return response.getResults();
 	}
+	
+	public MovieDetail movieDetail(Integer id) {
+		String url = "https://api.themoviedb.org/3/movie/" + id + "?api_key=" +myApiKey;
+		MovieDetail response2 = restTemplate.getForObject(url, MovieDetail.class);
+		return response2;
+	}
+	
+	
 }

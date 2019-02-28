@@ -24,6 +24,11 @@
 <td>${ movie.title }</td>
 <td>${ movie.releaseDate }</td>
 <td>${ movie.popularity }</td>
+<td><form action="/details">
+<input name="id" type="hidden"  value="${ movie.id }">
+<button >Details</button>
+</td>
+</form>
 </tr>
 
 </c:forEach>
