@@ -9,40 +9,40 @@
 <title>Movies</title>
 </head>
 <body>
-
+<div class="container">
 	<p>Title: ${ details.title }</p>
 
-	<p>overview: ${ details.overview }</p>
+	<p>Overview: <br> ${ details.overview }</p>
 
-	<p>popularity: ${ details.popularity }</p>
+	<p>Popularity: ${ details.popularity }</p>
 
 	<p>
-		production countries:<br>
+		Production countries:<br>
 		<c:forEach var="pCountries" items="${ details.pCountries }">
  			${ pCountries.name } <br>
 		</c:forEach>
 	</p>
 
-	<p>release date: ${ details.releaseDate }</p>
+	<p>Release date: ${ details.releaseDate }</p>
 
-	<p>budget:$ ${ details.budget }</p>
-	<p>revenue:$ ${ details.revenue }</p>
+	<p>Budget:$ ${ details.budget }</p>
+	<p>Revenue:$ ${ details.revenue }</p>
 
-	<p>runtime: ${ details.runtime } minutes</p>
+	<p>Runtime: ${ details.runtime } minutes</p>
 
-	<p>spoken languages:<br>
+	<p>Spoken languages:<br>
 	<c:forEach var="sLanguages" items="${ details.sLanguages }">
  			${ sLanguages.name } <br>
 		</c:forEach>
 		</p>
 
-	<p>status: ${ details.status }</p>
+	<p>Status: ${ details.status }</p>
 
-	<p>tagline:"${ details.tagline }"</p>
+	<p>Tagline:"${ details.tagline }"</p>
 
-	<p>vote average: ${ details.voteAverage }</p>
+	<p>Vote average: ${ details.voteAverage }</p>
 
-	<p>vote count: ${ details.voteCount }</p>
-
+	<p>Vote count: ${ details.voteCount }</p>
+</div>
 </body>
 </html>
