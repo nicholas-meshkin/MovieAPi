@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import co.grandcircus.MovieAPi.Model.Favorite;
 import co.grandcircus.MovieAPi.Model.Movie;
+import co.grandcircus.MovieAPi.Model.Genres;
 import co.grandcircus.MovieAPi.Model.MovieDetail;
 import co.grandcircus.MovieAPi.dao.FavoritesDao;
 
@@ -26,10 +27,22 @@ public class MovieApiController {
 	
 	@RequestMapping("/")
 	public ModelAndView home() {
-		Integer page = 2;
-		List<Movie> movieList = apiService.movieList(page);
-		return new ModelAndView("index", "movies", movieList);
+//		Integer page = 2;
+		List<Movie> movieList = apiService.movieList();
+		List<Genres> genreList = apiService.genreList();
+		System.out.println(genreList);
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("genres", genreList);
+		mav.addObject("movies",movieList);
+//		return new ModelAndView("index", "movies", movieList);
+		return mav;
 	}
+//	@RequestMapping("/")
+//	public ModelAndView home() {
+//		Integer page = 2;
+//		List<Movie> movieList = apiService.movieList(page);
+//		return new ModelAndView("index", "movies", movieList);
+//	}
 	@PostMapping("/")
 	public ModelAndView criteriaPage(
 			@RequestParam(value = "releaseYear", required = false) Integer releaseYear,
@@ -61,8 +74,13 @@ public class MovieApiController {
 //		Integer page = 2;
 //		Integer genreId = 18;
 		List<Movie> movieList = apiService.movieCriteria(releaseYear, adult, genreId, page);
-		return new ModelAndView("index","movies",movieList);
+		List<Genres> genreList = apiService.genreList();
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("genres", genreList);
+		mav.addObject("movies",movieList);
+		return mav;
 	}
+	
 	
 	@RequestMapping("/details")
 	public ModelAndView details(

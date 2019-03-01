@@ -22,10 +22,9 @@
 			<label for="genreId">Genre:</label> <select class="inputbox" id="genreId"
 				name="genreId"> <!-- value="${param.genreId }" -->
 				<option value=""></option>
-			<option value="28">Action</option>
-			<option value="12">Adventure</option>
-			<option value="16">Animation</option>
-			<!-- TODO: finish list of genres (going to use api to populate list -->
+				<c:forEach var="genre" items="${genres }">
+				<option value="${genre.id }">${genre.name}</option>
+				</c:forEach>
 			</select>
 		</p>
 		
