@@ -20,21 +20,34 @@
 		
 		<p>
 			<label for="genreId">Genre:</label> <select class="inputbox" id="genreId"
-				name="genreId"> <!-- value="${param.genreId }" -->
+				name="genreId" value="${param.genreId }"> <!-- value="${param.genreId }" -->
 				<option value=""></option>
 				<c:forEach var="genre" items="${genres }">
 				<option value="${genre.id }">${genre.name}</option>
 				</c:forEach>
 			</select>
 		</p>
-		
 		<p>
+			<label for="sort">Sort By:</label> <select class="inputbox" id="sort"
+				name="sort" value=""> <!-- value="${param.genreId }" -->
+				<option value=""></option>
+				<option value="vote_average.asc">Vote Average Asc</option>
+				<option value="vote_average.desc">Vote Average Desc</option>
+				<option value="popularity.asc">Popularity Asc</option>
+				<option value="popularity.desc">Popularity Desc</option>
+				<option value="primary_release_date.asc">Release Date Asc</option>
+				<option value="primary_release_date.desc">Release Date Desc</option>
+				<option value="revenue.asc">Revenue Asc</option>
+				<option value="revenue.desc">Revenue Desc</option>
+			</select>
+		</p>
+		<!-- <p>
 			<label for="adult">Adult:</label> <select class="inputbox" id="adult"
 				name="adult">
 			<option value="false">No</option>
 			<option value="true">Yes</option>
 			</select>
-		</p>
+		</p> -->
 		<br>
 		
 		
@@ -44,7 +57,6 @@
 	</form>
 
 		<table>
-
 			<tr>
 				<th>Title</th>
 				<th>Release Date</th>
@@ -62,12 +74,12 @@
 							<input name="id" type="hidden" value="${ movie.id }">
 							<button>Details</button>
 					</form>
-					
 					</td>
 					
 					<td>
 					<form method= "post">
 							<input name="movieId" type="hidden" value="${ movie.id }">
+							<input name="title" type="hidden" value="${ movie.title }">
 							<button>Add Favorite</button>
 					</form>
 					<!--  < a href="/?id=${movie.id }&releaseYear=${param.releaseYear }" -->
@@ -76,6 +88,7 @@
 
 			</c:forEach>
 		</table>
+		<a href = "/favorites">Favorites</a>
 
 	</div>
 

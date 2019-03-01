@@ -46,10 +46,12 @@ public class MovieApiController {
 	@PostMapping("/")
 	public ModelAndView criteriaPage(
 			@RequestParam(value = "releaseYear", required = false) Integer releaseYear,
-			@RequestParam(value = "adult", required = false) Boolean adult,
+//			@RequestParam(value = "adult", required = false) Boolean adult,
+			@RequestParam(value = "sort", required = false) String sort,
 			@RequestParam(value = "genreId", required = false) Integer genreId,
 			@RequestParam(value = "page", required = false) Integer page,
-			@RequestParam(value = "movieId", required = false) Integer movieId
+			@RequestParam(value = "movieId", required = false) Integer movieId,
+			@RequestParam(value = "title", required = false) String title
 			) {
 		if (movieId != null) {
 			List<Favorite> faveList = favoritesDao.findAll();
@@ -67,13 +69,14 @@ public class MovieApiController {
 			}
 			Favorite favorite = new Favorite();
 			favorite.setMovieId(movieId);
+			favorite.setTitle(title);
 			favoritesDao.create(favorite);
 		}
 //		Integer releaseYear = 2011;
 //		Boolean adult = false;
 //		Integer page = 2;
 //		Integer genreId = 18;
-		List<Movie> movieList = apiService.movieCriteria(releaseYear, adult, genreId, page);
+		List<Movie> movieList = apiService.movieCriteria(releaseYear,genreId, page,sort);
 		List<Genres> genreList = apiService.genreList();
 		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("genres", genreList);
@@ -90,4 +93,15 @@ public class MovieApiController {
 		MovieDetail details = apiService.movieDetail(id);
 		return new ModelAndView("Details","details", details);
 	}
+	
+	@RequestMapping("/favorites")
+	public ModelAndView favoritesPage() {
+		ModelAndView mav = new ModelAndView("Favorites");
+		List<Favorite> favoritesList = favoritesDao.findAll();
+		mav.addObject("favoritesList", favoritesList);
+		
+		
+		return mav;
+	}
+	
 }

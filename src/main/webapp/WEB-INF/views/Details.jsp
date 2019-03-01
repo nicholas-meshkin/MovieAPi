@@ -43,6 +43,9 @@
 	<p>Vote average: ${ details.voteAverage }</p>
 
 	<p>Vote count: ${ details.voteCount }</p>
+	
+	<a href = "/">Home</a>
+	<a href = "/favorites">Favorites</a>
 </div>
 </body>
 </html>

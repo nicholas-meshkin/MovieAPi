@@ -43,9 +43,9 @@ public class ApiService {
 		return response2;
 	}
 	
-	public List<Movie> movieCriteria(Integer releaseYear, Boolean adult, Integer genreId, Integer page){
+	public List<Movie> movieCriteria(Integer releaseYear, Integer genreId, Integer page, String sort){
 		
-		String url = "https://api.themoviedb.org/3/discover/movie?sort_by=primary_release_date.asc&api_key=" + myApiKey +"&primary_release_year="+releaseYear+"&with_genres="+genreId+ "&page=" + page;
+		String url = "https://api.themoviedb.org/3/discover/movie?&api_key=" + myApiKey +"&primary_release_year="+releaseYear+"&with_genres="+genreId+"&sort_by="+sort+ "&page=" + page;
 		MovieResponse response3 = restTemplate.getForObject(url, MovieResponse.class);
 		return response3.getResults();
 	}

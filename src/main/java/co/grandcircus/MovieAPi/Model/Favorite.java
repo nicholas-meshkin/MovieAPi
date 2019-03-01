@@ -12,17 +12,27 @@ public class Favorite {
 	@Id@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private Integer movieId;
+	private String title;
 	
 	
 	
-	public Favorite() {}
 	
-	public Favorite(Long id, Integer movieId) {
+public Favorite() {}
+
+	public Favorite(Long id, Integer movieId, String title) {
 		super();
 		this.id = id;
 		this.movieId = movieId;
+		this.title = title;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 	public Long getId() {
 		return id;
@@ -36,10 +46,12 @@ public class Favorite {
 	public void setMovieId(Integer movieId) {
 		this.movieId = movieId;
 	}
+
 	@Override
 	public String toString() {
-		return "Favorite [id=" + id + ", movieId=" + movieId + "]";
+		return "Favorite [id=" + id + ", movieId=" + movieId + ", title=" + title + "]";
 	}
+	
 	
 	
 	
