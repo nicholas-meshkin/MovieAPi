@@ -49,4 +49,34 @@ public class ApiService {
 		MovieResponse response3 = restTemplate.getForObject(url, MovieResponse.class);
 		return response3.getResults();
 	}
+public List<Movie> movieCriteria(Integer releaseYear, Integer genreId, String sort){
+		
+		String url = "https://api.themoviedb.org/3/discover/movie?&api_key=" + myApiKey +"&primary_release_year="+releaseYear+"&with_genres="+genreId+"&sort_by="+sort;
+		MovieResponse response3 = restTemplate.getForObject(url, MovieResponse.class);
+		return response3.getResults();
+	}
+public List<Movie> movieCriteria(Integer releaseYear, Integer genreId){
+	
+	String url = "https://api.themoviedb.org/3/discover/movie?&api_key=" + myApiKey +"&primary_release_year="+releaseYear+"&with_genres="+genreId;
+	MovieResponse response3 = restTemplate.getForObject(url, MovieResponse.class);
+	return response3.getResults();
+}
+public List<Movie> movieCriteria(Integer releaseYear, String sort){
+	
+	String url = "https://api.themoviedb.org/3/discover/movie?&api_key=" + myApiKey +"&primary_release_year="+releaseYear+"&sort_by="+sort;
+	MovieResponse response3 = restTemplate.getForObject(url, MovieResponse.class);
+	return response3.getResults();
+}
+public List<Movie> movieCriteria(Integer releaseYear){
+	
+	String url = "https://api.themoviedb.org/3/discover/movie?&api_key=" + myApiKey +"&primary_release_year="+releaseYear;
+	MovieResponse response3 = restTemplate.getForObject(url, MovieResponse.class);
+	return response3.getResults();
+}
+public List<Movie> movieCriteria(){
+	
+	String url = "https://api.themoviedb.org/3/discover/movie?&api_key=" + myApiKey;
+	MovieResponse response3 = restTemplate.getForObject(url, MovieResponse.class);
+	return response3.getResults();
+}
 }

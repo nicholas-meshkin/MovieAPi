@@ -20,8 +20,8 @@
 		
 		<p>
 			<label for="genreId">Genre:</label> <select class="inputbox" id="genreId"
-				name="genreId" value="${param.genreId }"> <!-- value="${param.genreId }" -->
-				<option value=""></option>
+				name="genreId"> <!-- value="${param.genreId }" -->
+				<option value="${param.genreId}"></option>
 				<c:forEach var="genre" items="${genres }">
 				<option value="${genre.id }">${genre.name}</option>
 				</c:forEach>
@@ -29,8 +29,8 @@
 		</p>
 		<p>
 			<label for="sort">Sort By:</label> <select class="inputbox" id="sort"
-				name="sort" value=""> <!-- value="${param.genreId }" -->
-				<option value=""></option>
+				name="sort"> <!-- value="${param.genreId }" -->
+				<option value="${param.sort}"></option>
 				<option value="vote_average.asc">Vote Average Asc</option>
 				<option value="vote_average.desc">Vote Average Desc</option>
 				<option value="popularity.asc">Popularity Asc</option>
@@ -70,17 +70,21 @@
 					<td>${ movie.releaseDate }</td>
 					<td>${ movie.popularity }</td>
 					<td>
-					<form action="/details">
-							<input name="id" type="hidden" value="${ movie.id }">
-							<button>Details</button>
-					</form>
-					</td>
-					
-					<td>
 					<form method= "post">
 							<input name="movieId" type="hidden" value="${ movie.id }">
 							<input name="title" type="hidden" value="${ movie.title }">
+							<input name="genreId" type="hidden" value="${ param.genreId }">
+							<input name="releaseYear" type="hidden" value="${ param.releaseYear }">
+							<input name="sort" type="hidden" value="${ param.sort }">
 							<button>Add Favorite</button>
+					</form>
+					
+					</td>
+					
+					<td>
+					<form action="/details">
+							<input name="id" type="hidden" value="${ movie.id }">
+							<button>Details</button>
 					</form>
 					<!--  < a href="/?id=${movie.id }&releaseYear=${param.releaseYear }" -->
 					</td>

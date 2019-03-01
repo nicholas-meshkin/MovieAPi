@@ -46,12 +46,12 @@ public class MovieApiController {
 	@PostMapping("/")
 	public ModelAndView criteriaPage(
 			@RequestParam(value = "releaseYear", required = false) Integer releaseYear,
-//			@RequestParam(value = "adult", required = false) Boolean adult,
 			@RequestParam(value = "sort", required = false) String sort,
 			@RequestParam(value = "genreId", required = false) Integer genreId,
 			@RequestParam(value = "page", required = false) Integer page,
 			@RequestParam(value = "movieId", required = false) Integer movieId,
-			@RequestParam(value = "title", required = false) String title
+			@RequestParam(value = "title", required = false) String title,
+			@RequestParam(value = "genreName", required = false) String genreName
 			) {
 		if (movieId != null) {
 			List<Favorite> faveList = favoritesDao.findAll();
@@ -76,7 +76,15 @@ public class MovieApiController {
 //		Boolean adult = false;
 //		Integer page = 2;
 //		Integer genreId = 18;
-		List<Movie> movieList = apiService.movieCriteria(releaseYear,genreId, page,sort);
+		List<Movie> movieList;
+		if(genreId!=null) {
+		movieList = apiService.movieCriteria(releaseYear,genreId,sort);
+		}else if (sort!=null){
+			movieList = apiService.movieCriteria(releaseYear,sort);
+		}else {
+			sort="primary_release_date.asc";
+			movieList = apiService.movieCriteria(releaseYear,sort);
+		}
 		List<Genres> genreList = apiService.genreList();
 		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("genres", genreList);
