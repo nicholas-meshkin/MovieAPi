@@ -15,7 +15,7 @@
 	</tr>
 		<c:forEach var="movie" items="${ favoritesList }">
 		<tr>
-				<td>${ movie.id }</td>
+				
 				<td>${ movie.title }</td>
 				<td>
 					<form action="/details">
@@ -23,6 +23,12 @@
 							<button>Details</button>
 					</form>
 					</td>
+				<td>
+					<form action="/delete">
+							<input name="id" type="hidden" value="${ movie.id }">
+							<button>Delete</button>
+					</form>
+				</td>	
 		</tr>
 		</c:forEach>
 </table>

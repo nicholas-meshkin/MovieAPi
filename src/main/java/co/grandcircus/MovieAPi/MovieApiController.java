@@ -112,4 +112,18 @@ public class MovieApiController {
 		return mav;
 	}
 	
+	@RequestMapping("/delete")
+	public ModelAndView delete(
+			@RequestParam("id") Long id
+			) {
+		favoritesDao.delete(id);
+		
+		ModelAndView mav = new ModelAndView("Favorites");
+		List<Favorite> favoritesList = favoritesDao.findAll();
+		mav.addObject("favoritesList", favoritesList);
+		
+		
+		return mav;
+	}
+	
 }
