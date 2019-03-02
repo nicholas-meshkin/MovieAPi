@@ -9,7 +9,6 @@
 <title>Favorites Page</title>
 </head>
 <body>
-
 	<div class="container">
 	<h2>My Favorites</h2>
 	<br>
@@ -26,22 +25,20 @@
 				<td>
 					<form action="/details">
 							<input name="id" type="hidden" value="${ movie.movieId }">
-							<button>Details</button>
+							<button class="btn btn-secondary ml-4">Details</button>
 					</form>
 					</td>
 				<td>
 					<form action="/delete">
 							<input name="id" type="hidden" value="${ movie.id }">
-							<button>Delete</button>
+							<button class="btn btn-secondary ml-4">Delete</button>
 					</form>
 				</td>	
 		</tr>
 		</c:forEach>
 </table>
 	<a href="/">Home</a>
-	
 	<br>
-
 	<p>
 	"This product uses the TMDb API but is not endorsed or certified by
 	TMDb."

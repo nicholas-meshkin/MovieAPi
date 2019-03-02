@@ -16,20 +16,23 @@
 	<h1>Movie List App</h1>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 	<form method="post">
-	<p id="navbarColor01">
+	<span class="nav-item">
 			<label class="h4 mr-1" for="releaseYear">Release Year:</label> <input class="inputbox" type="number"
 				id="releaseYear" name="releaseYear" min=1874 max=2026 value="${param.releaseYear}"/>
-		
+				</span>
+		<span class="nav-item">
 			<label class="h4 ml-4 mr-1" for="genreId">Genre:</label> <select class="inputbox" id="genreId"
-				name="genreId"> <!-- value="${param.genreId }" -->
+				name="genreId">
 				<option value="${param.genreId}"></option>
 				<c:forEach var="genre" items="${genres }">
 				<option value="${genre.id }">${genre.name}</option>
 				</c:forEach>
+				
 			</select>
-		
+			</span>
+		<span class="nav-item">
 			<label class="h4 ml-4 mr-1" for="sort">Sort By:</label> <select class="inputbox" id="sort"
-				name="sort"> <!-- value="${param.genreId }" -->
+				name="sort"> 
 				<option value="${param.sort}"></option>
 				<option value="vote_average.asc">Vote Average Asc</option>
 				<option value="vote_average.desc">Vote Average Desc</option>
@@ -40,21 +43,14 @@
 				<option value="revenue.asc">Revenue Asc</option>
 				<option value="revenue.desc">Revenue Desc</option>
 			</select>
-		
+			</span>
+			
+		<span class="nav-item">
 			<label class="h4 ml-4 mr-1" for="page">Page:</label> <input class="inputbox" type="number"
 				id="page" name="page" min=1 max=20000 value="${param.page}"/>
-				<button class="ml-4" >Submit</button>
-		</p>
-		<!-- <p>
-			<label for="adult">Adult:</label> <select class="inputbox" id="adult"
-				name="adult">
-			<option value="false">No</option>
-			<option value="true">Yes</option>
-			</select>
-		</p> -->
-		
-			
-		
+				
+				<button class="btn btn-secondary ml-4">Submit</button>
+		</span>
 	</form>
 	</nav>
 
@@ -81,17 +77,14 @@
 							<input name="releaseYear" type="hidden" value="${ param.releaseYear }">
 							<input name="sort" type="hidden" value="${ param.sort }">
 							<input name="page" type="hidden" value="${param.page }">
-							<button>Add Favorite</button>
+							<button class="btn btn-primary">Add Favorite</button>
 					</form>
-					
 					</td>
-					
 					<td>
 					<form action="/details">
 							<input name="id" type="hidden" value="${ movie.id }">
-							<button>Details</button>
+							<button class="btn btn-primary">Details</button>
 					</form>
-					<!--  < a href="/?id=${movie.id }&releaseYear=${param.releaseYear }" -->
 					</td>
 				</tr>
 
@@ -108,7 +101,5 @@
 	</p>
 	</div>
 
-
-	
 </body>
 </html>

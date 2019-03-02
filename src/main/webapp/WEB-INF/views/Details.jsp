@@ -11,6 +11,7 @@
 </head>
 <body>
 <div class="container">
+<h2 class="font-weight-bold">Details</h2>
 	<p>Title: ${ details.title }</p>
 
 	<p>Overview: <br> ${ details.overview }</p>
@@ -26,8 +27,8 @@
 
 	<p>Release date: ${ details.releaseDate }</p>
 
-	<p>Budget:$ ${ details.budget }</p>
-	<p>Revenue:$ ${ details.revenue }</p>
+	<p>Budget: $${details.budget }</p>
+	<p>Revenue: $${ details.revenue }</p>
 
 	<p>Runtime: ${ details.runtime } minutes</p>
 
