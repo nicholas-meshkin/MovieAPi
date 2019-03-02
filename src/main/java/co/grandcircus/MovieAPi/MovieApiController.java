@@ -30,19 +30,12 @@ public class MovieApiController {
 //		Integer page = 2;
 		List<Movie> movieList = apiService.movieList();
 		List<Genres> genreList = apiService.genreList();
-		System.out.println(genreList);
 		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("genres", genreList);
 		mav.addObject("movies",movieList);
-//		return new ModelAndView("index", "movies", movieList);
 		return mav;
 	}
-//	@RequestMapping("/")
-//	public ModelAndView home() {
-//		Integer page = 2;
-//		List<Movie> movieList = apiService.movieList(page);
-//		return new ModelAndView("index", "movies", movieList);
-//	}
+
 	@PostMapping("/")
 	public ModelAndView criteriaPage(
 			@RequestParam(value = "releaseYear", required = false) Integer releaseYear,
@@ -63,7 +56,6 @@ public class MovieApiController {
 				}
 				if (movieIds.contains(movieId)) {
 					return new ModelAndView ("redirect:/");
-							///TODO add an error message, stay with same search
 				}
 				
 			}
@@ -78,9 +70,9 @@ public class MovieApiController {
 //		Integer genreId = 18;
 		List<Movie> movieList;
 		if(genreId!=null) {
-		movieList = apiService.movieCriteria(releaseYear,genreId,sort);
+		movieList = apiService.movieCriteria(releaseYear,genreId,page,sort);
 		}else if (sort!=null){
-			movieList = apiService.movieCriteria(releaseYear,sort);
+			movieList = apiService.movieCriteria(releaseYear,sort,page);
 		}else {
 			sort="primary_release_date.asc";
 			movieList = apiService.movieCriteria(releaseYear,sort);
@@ -117,13 +109,12 @@ public class MovieApiController {
 			@RequestParam("id") Long id
 			) {
 		favoritesDao.delete(id);
-		
-		ModelAndView mav = new ModelAndView("Favorites");
-		List<Favorite> favoritesList = favoritesDao.findAll();
-		mav.addObject("favoritesList", favoritesList);
-		
-		
-		return mav;
+		return new ModelAndView ("redirect:/favorites");
+//		NOTE: redirecting back to favorites, instead of doing the below, hides the delete ID from the url bar
+//		ModelAndView mav = new ModelAndView("Favorites");
+//		List<Favorite> favoritesList = favoritesDao.findAll();
+//		mav.addObject("favoritesList", favoritesList);
+//		return mav;
 	}
 	
 }

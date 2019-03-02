@@ -11,14 +11,12 @@
 <body>
 
 	<div class="container">
-	
+	<h1>Movie List App</h1>
 	<form method="post">
 	<p>
 			<label for="releaseYear">Release Year:</label> <input class="inputbox" type="number"
-				id="releaseYear" name="releaseYear" value="${param.releaseYear}"/>
-		</p>
+				id="releaseYear" name="releaseYear" min=1874 max=2026 value="${param.releaseYear}"/>
 		
-		<p>
 			<label for="genreId">Genre:</label> <select class="inputbox" id="genreId"
 				name="genreId"> <!-- value="${param.genreId }" -->
 				<option value="${param.genreId}"></option>
@@ -26,8 +24,7 @@
 				<option value="${genre.id }">${genre.name}</option>
 				</c:forEach>
 			</select>
-		</p>
-		<p>
+		
 			<label for="sort">Sort By:</label> <select class="inputbox" id="sort"
 				name="sort"> <!-- value="${param.genreId }" -->
 				<option value="${param.sort}"></option>
@@ -40,6 +37,9 @@
 				<option value="revenue.asc">Revenue Asc</option>
 				<option value="revenue.desc">Revenue Desc</option>
 			</select>
+		
+			<label for="page">Page:</label> <input class="inputbox" type="number"
+				id="page" name="page" min=1 max=20000 value="${param.page}"/>
 		</p>
 		<!-- <p>
 			<label for="adult">Adult:</label> <select class="inputbox" id="adult"
@@ -55,6 +55,7 @@
 			<button>Submit</button>
 		</p>
 	</form>
+	
 
 		<table>
 			<tr>
@@ -76,6 +77,7 @@
 							<input name="genreId" type="hidden" value="${ param.genreId }">
 							<input name="releaseYear" type="hidden" value="${ param.releaseYear }">
 							<input name="sort" type="hidden" value="${ param.sort }">
+							<input name="page" type="hidden" value="${param.page }">
 							<button>Add Favorite</button>
 					</form>
 					
@@ -92,7 +94,9 @@
 
 			</c:forEach>
 		</table>
+		<br>
 		<a href = "/favorites">Favorites</a>
+		<a href="/">Clear Search</a>
 
 	</div>
 
