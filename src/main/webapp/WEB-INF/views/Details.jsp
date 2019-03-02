@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/superhero/bootstrap.min.css">
 <title>Movies</title>
 </head>
 <body>
@@ -44,8 +45,15 @@
 
 	<p>Vote count: ${ details.voteCount }</p>
 	
-	<a href = "/">Home</a>
+	<a class="mr-4" href = "/">Home</a>
 	<a href = "/favorites">Favorites</a>
+	
+	<br>
+
+	<p>
+	"This product uses the TMDb API but is not endorsed or certified by
+	TMDb."
+	</p>
 </div>
 </body>
 </html>

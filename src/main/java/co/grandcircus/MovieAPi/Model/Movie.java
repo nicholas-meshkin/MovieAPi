@@ -1,4 +1,4 @@
-package co.grandcircus.MovieAPi.Model;
+	package co.grandcircus.MovieAPi.Model;
 
 import java.util.List;
 

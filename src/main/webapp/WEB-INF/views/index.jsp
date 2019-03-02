@@ -6,18 +6,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/superhero/bootstrap.min.css">
 <title>Home</title>
+
 </head>
 <body>
 
 	<div class="container">
 	<h1>Movie List App</h1>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 	<form method="post">
-	<p>
-			<label for="releaseYear">Release Year:</label> <input class="inputbox" type="number"
+	<p id="navbarColor01">
+			<label class="h4 mr-1" for="releaseYear">Release Year:</label> <input class="inputbox" type="number"
 				id="releaseYear" name="releaseYear" min=1874 max=2026 value="${param.releaseYear}"/>
 		
-			<label for="genreId">Genre:</label> <select class="inputbox" id="genreId"
+			<label class="h4 ml-4 mr-1" for="genreId">Genre:</label> <select class="inputbox" id="genreId"
 				name="genreId"> <!-- value="${param.genreId }" -->
 				<option value="${param.genreId}"></option>
 				<c:forEach var="genre" items="${genres }">
@@ -25,7 +28,7 @@
 				</c:forEach>
 			</select>
 		
-			<label for="sort">Sort By:</label> <select class="inputbox" id="sort"
+			<label class="h4 ml-4 mr-1" for="sort">Sort By:</label> <select class="inputbox" id="sort"
 				name="sort"> <!-- value="${param.genreId }" -->
 				<option value="${param.sort}"></option>
 				<option value="vote_average.asc">Vote Average Asc</option>
@@ -38,8 +41,9 @@
 				<option value="revenue.desc">Revenue Desc</option>
 			</select>
 		
-			<label for="page">Page:</label> <input class="inputbox" type="number"
+			<label class="h4 ml-4 mr-1" for="page">Page:</label> <input class="inputbox" type="number"
 				id="page" name="page" min=1 max=20000 value="${param.page}"/>
+				<button class="ml-4" >Submit</button>
 		</p>
 		<!-- <p>
 			<label for="adult">Adult:</label> <select class="inputbox" id="adult"
@@ -48,28 +52,27 @@
 			<option value="true">Yes</option>
 			</select>
 		</p> -->
-		<br>
 		
+			
 		
-		<p>
-			<button>Submit</button>
-		</p>
 	</form>
-	
+	</nav>
 
-		<table>
-			<tr>
-				<th>Title</th>
-				<th>Release Date</th>
-				<th>Popularity</th>
+		<table class= "table">
+			<tr class="table-secondary">
+				<th class= "h3">Title</th>
+				<th class= "h3">Release Date</th>
+				<th class= "h3">Popularity</th>
+				<th class="h3"></th>
+				<th class="h3"></th>
 			</tr>
 
 			<c:forEach var="movie" items="${ movies }">
 
-				<tr>
-					<td>${ movie.title }</td>
-					<td>${ movie.releaseDate }</td>
-					<td>${ movie.popularity }</td>
+				<tr class="table-success">
+					<td class= "h4">${ movie.title }</td>
+					<td class= "h4">${ movie.releaseDate }</td>
+					<td class= "h4">${ movie.popularity }</td>
 					<td>
 					<form method= "post">
 							<input name="movieId" type="hidden" value="${ movie.id }">
@@ -95,13 +98,17 @@
 			</c:forEach>
 		</table>
 		<br>
-		<a href = "/favorites">Favorites</a>
+		<a class="mr-4" href = "/favorites">Favorites</a>
 		<a href="/">Clear Search</a>
+		<br>
 
+	<p>
+	"This product uses the TMDb API but is not endorsed or certified by
+	TMDb."
+	</p>
 	</div>
 
 
-	"This product uses the TMDb API but is not endorsed or certified by
-	TMDb."
+	
 </body>
 </html>
