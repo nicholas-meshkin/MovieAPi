@@ -11,40 +11,72 @@
 </head>
 <body>
 <div class="container">
-<h2 class="font-weight-bold">Details</h2>
-	<p>Title: ${ details.title }</p>
+<h2 class="font-weight-bold">Movie Details</h2>
+<br>
 
-	<p>Overview: <br> ${ details.overview }</p>
+	<p class="h2" ><strong>Title:</strong> ${ details.title }</p>
 
-	<p>Popularity: ${ details.popularity }</p>
+	<p><strong>Overview:</strong> <br> ${ details.overview }</p>
 
-	<p>
-		Production countries:<br>
-		<c:forEach var="pCountries" items="${ details.pCountries }">
+	<table class="table">
+	
+	
+	<tr>
+	<td><strong>Popularity:</strong></td>
+	<td> ${ details.popularity }</td>
+</tr>
+
+<tr>
+	<td><strong>Production countries:</strong></td><br>
+		<td><c:forEach var="pCountries" items="${ details.pCountries }">
  			${ pCountries.name } <br>
-		</c:forEach>
-	</p>
+		</c:forEach></td>
+	</tr>
 
-	<p>Release date: ${ details.releaseDate }</p>
+<tr>
+	<td><strong>Release date:</strong></td> 
+	<td>${ details.releaseDate }</td>
+</tr>
 
-	<p>Budget: $${details.budget }</p>
-	<p>Revenue: $${ details.revenue }</p>
-
-	<p>Runtime: ${ details.runtime } minutes</p>
-
-	<p>Spoken languages:<br>
-	<c:forEach var="sLanguages" items="${ details.sLanguages }">
+<tr>
+	<td><strong>Budget:</strong></td>
+	<td> $${details.budget }</td>
+	</tr>
+	
+	<tr>
+	<td><strong>Revenue:</strong></td>
+	<td> $${ details.revenue }</td>
+</tr>
+<tr>
+	<td><strong>Runtime:</strong></td> 
+	<td> ${ details.runtime } minutes</td>
+</tr>
+<tr>
+	<td>
+	<strong>Spoken languages:</strong></td><br>
+	<td><c:forEach var="sLanguages" items="${ details.sLanguages }">
  			${ sLanguages.name } <br>
 		</c:forEach>
-		</p>
-
-	<p>Status: ${ details.status }</p>
-
-	<p>Tagline:"${ details.tagline }"</p>
-
-	<p>Vote average: ${ details.voteAverage }</p>
-
-	<p>Vote count: ${ details.voteCount }</p>
+		</td>
+</tr>
+<tr>
+	<td><strong>Status:</strong></td>
+	<td> ${ details.status }</td>
+</tr>
+<tr>
+	<td><strong>Tagline: </strong></td>
+	<td>"${ details.tagline }"</td>
+</tr>
+<tr>
+	<td><strong>Vote average:</strong></td>
+	<td> ${ details.voteAverage }</td>
+</tr>
+<tr>
+	<td><strong>Vote count:</strong></td>
+	<td> ${ details.voteCount }</td>
+	</tr>
+	</table>
+	
 	
 	<a class="mr-4" href = "/">Home</a>
 	<a href = "/favorites">Favorites</a>

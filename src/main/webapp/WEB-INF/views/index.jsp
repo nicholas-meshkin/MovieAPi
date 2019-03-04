@@ -56,9 +56,9 @@
 
 		<table class= "table">
 			<tr class="table-secondary">
-				<th class= "h3">Title</th>
-				<th class= "h3">Release Date</th>
-				<th class= "h3">Popularity</th>
+				<th class="h3">Title</th>
+				<th class="h3">Release Date</th>
+				<th class="h3">Popularity</th>
 				<th class="h3"></th>
 				<th class="h3"></th>
 			</tr>
